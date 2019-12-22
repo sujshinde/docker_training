@@ -1,0 +1,9 @@
+sudo: required
+services: 
+  - docker 
+
+before_install: 
+  - docker build -t sujshinde/docker_training -f dockerfile.dev . 
+
+script: 
+  - docker run sujshinde/docker_training npm run test -- -- coverage
